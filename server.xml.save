@@ -1,0 +1,42 @@
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <!-->feature>webProfile-8.0</feature-->
+        <!-->feature>cdi-2.0</feature-->
+        <!--feature>ejbLite-3.2</feature-->
+        <!-- feature>localConnector-1.0</feature-->
+             <feature>microProfile-3.3</feature>
+        <feature>localConnector-1.0</feature>
+    </featureManager>
+
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint" host="*" />
+
+    <!--virtualHost id="default_host" allowFromEndpointRef="defaultHttpEndpoint">
+    <hostAlias>*:9080</hostAlias>
+    <hostAlias>*:80</hostAlias>
+    <hostAlias>*:443</hostAlias>
+   </virtualHost-->
+
+                  
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+
+
+    <applicationMonitor updateTrigger="mbean"/>
+
+    <!--enterpriseApplication id="Simple-Relax" location="Simple-Relax.ear" name="Simple-Relax"/-->
+
+    <enterpriseApplication id="FaultToleranceAppEAR" location="FaultToleranceAppEAR.ear" name="FaultToleranceAppEAR"/>
+    <basicRegistry>
+    	<user name="admin" password="{xor}PjsyNjE="/>
+    </basicRegistry>
+    <administrator-role>
+    	<user>admin</user>
+    </administrator-role>
+    
+    <!--logging traceSpecification="com.ibm.ws.microprofile.*=all" /-->
+    
+</server>
